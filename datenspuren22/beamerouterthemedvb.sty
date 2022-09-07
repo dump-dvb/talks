@@ -1,0 +1,32 @@
+\mode<presentation>
+
+% fdc401
+\definecolor{dvbyellow}{RGB}{254,196,1}
+
+% Frame title
+\defbeamertemplate*{frametitle}{dvg}[1][]
+{
+\vskip1cm%
+  \begin{beamercolorbox}[wd=\paperwidth,ht=1.2cm]{frametitle} 
+  \begin{tikzpicture}
+  \useasboundingbox[fill=white](0,0) rectangle(\the\paperwidth,1.2);
+  
+  \fill[dvbyellow] (0,0.5) rectangle (\the\paperwidth,1.8);
+  \node[scale=0.7] (logo) at (2.4,-2.75) {
+    \includegraphics[width=\textwidth]{dvbdump}
+  };
+  %\node[text=black, scale=0.8] (name) at (3,1.5) {DUMP-DVB};
+  %\node[text=black, scale=0.7] (name) at (3,1.1) {Institute};
+  %\fill[orange] (0,0) rectangle(2.95,1.2);
+  %\fill[blue!50!cyan!80] (3.05,0) rectangle(\the\paperwidth,1.2);
+   \ifx\insertframesubtitle\@empty%
+      {\node[anchor=west, black,font=\large] at (5,1.5){\textbf{\Large \insertframetitle}};}
+      \else%
+      {\node[anchor= west, black,font=\large] at (5,1.5){\textbf{\Large \insertframetitle}};%
+       \node[anchor= west, black,font=\small] at (5,0.8){\insertframesubtitle};}%
+      \fi
+  \end{tikzpicture}
+  \end{beamercolorbox}
+}
+
+\mode<all>
