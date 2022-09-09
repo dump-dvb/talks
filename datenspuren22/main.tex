@@ -9,6 +9,20 @@
 
 \usetheme{dvb}
 
+\AtBeginSection[]{
+  \begin{frame}
+    \begin{tikzpicture}
+      \fill[rounded corners,dvbyellow,rotate around={30:(-1,0.5)}] (-20.5,0) rectangle (-0.5,2);
+      \fill[rounded corners,dvbyellow,rotate around={30:(-1,0.5)}] (-20.5,3) rectangle (-0.5,5);
+      \node (logo) at (-18,2) {
+        \textbf{ \LARGE \textbf{ \myfont \secname } }
+      };
+  \end{tikzpicture}
+  \end{frame}
+}
+
+\newcommand*{\myfont}{\fontfamily{pag}\selectfont}
+
 \begin{document}
 
 \begin{frame}\titlepage
@@ -27,6 +41,8 @@
 \end{enumerate}
 
 \end{frame}
+
+\section{Radio \& VDV 420}
 
 \begin{frame}
 \frametitle{Receiving data}
@@ -62,5 +78,10 @@
 \includegraphics[height=0.8\textheight]{figs/vcdb-map-ampelbeeinflussung.png}
 \end{frame}
 
+\section{Soul Extrating Information \& Mapping }
+
+%TODO: oxa
+
+\section{Architecture \& Infra }
 
 \end{document}

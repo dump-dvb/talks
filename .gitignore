@@ -2,3 +2,4 @@
 *snm
 *.fdb_latexmk
 *.fls
+*.el
