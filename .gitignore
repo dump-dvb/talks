@@ -1,2 +1,4 @@
 *.nav
 *snm
+*.fdb_latexmk
+*.fls
