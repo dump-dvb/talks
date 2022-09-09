@@ -70,8 +70,14 @@
 
 \begin{frame}
 	\begin{itemize}
-	\item telegrams of trams and busses standardized in \href{https://knowhow.vdv.de/documents/420/}{VDV 420}
-	\item R09.16 telegramsx used in Dresden
+		\item R09 telegrams of trams and busses standardized in \href{https://knowhow.vdv.de/documents/420/}{VDV 420}
+		\item dresden uses R09.16
+		\item what data do we receive?
+		\begin{itemize}
+			\item Tram identification data: line number, run number, destination number
+			\item Location data: traffic light id, direction, registration\_type
+			\item and some other
+		\end{itemize}
 	\end{itemize}
 \end{frame}
 
@@ -79,11 +85,17 @@
 
 \begin{frame}
 \frametitle{Receiving data}
+\begin{figure}
 \centering
 % https://opus4.hbz-nrw.de/opus45-bast/frontdoor/deliver/index/docId/2595/file/V353+BF+Gesamtversion.pdf
 % page 25
-
+\begin{columns}
+\column{.5\linewidth}
 \includegraphics[height=0.8\textheight]{figs/vcdb-map-ampelbeeinflussung.png}
+\column{.5\linewidth}
+\caption{Map showing some of the locations with traffic lights, controlled by public transport. Blue points use the standard we already implemented.}
+\end{columns}
+\end{figure}
 \end{frame}
 
 % =================================================
