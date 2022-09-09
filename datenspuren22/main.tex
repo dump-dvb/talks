@@ -3,8 +3,11 @@
 \usepackage[T1]{fontenc}
 \usepackage{svg}
 
+\setbeamercolor{section in toc}{fg=black}
+\setbeamercolor{subsection in toc}{fg=black}
+
 \title{Open Data: \\ Receive it Yourself}
-\date[ISPN ’80]{Datenspuren 2022}
+\date[ISPN ’80]{Datenspuren 2022, Dresden}
 \author[]{Tassilo, 0xA, Marenz (dump@dvb.solutions)}
 
 \usetheme{dvb}
@@ -33,16 +36,13 @@
 \frametitle{Roadmap} 
 %\framesubtitle{The proof uses \textit{reductio ad absurdum}.} 
 
-\begin{enumerate}
-    \item VDV 420 explaining the standard
-    \item what we are trying to achieve
-    \item we had a plan until we saw raw data
-    \item We need you !
-\end{enumerate}
+\tableofcontents
 
 \end{frame}
 
 \section{Radio \& VDV 420}
+
+% =================================================
 
 \begin{frame}
 \frametitle{Receiving data}
@@ -50,11 +50,15 @@
 \includegraphics[width=0.8\textwidth]{figs/lsa-beeinflussungs-stecke.pdf}
 \end{frame}
 
+% =================================================
+
 \begin{frame}
 \frametitle{Receiving data}
 \centering
 \includegraphics[width=0.8\textwidth]{figs/lsa-beeinflussungs-stecke-mit-antenne.pdf}
 \end{frame}
+
+% =================================================
 
 \begin{frame}
 \frametitle{Receiving data}
@@ -62,12 +66,16 @@
 \includegraphics[width=0.7\textwidth]{figs/antenna-filter.pdf}
 \end{frame}
 
+% =================================================
+
 \begin{frame}
 	\begin{itemize}
 	\item telegrams of trams and busses standardized in \href{https://knowhow.vdv.de/documents/420/}{VDV 420}
 	\item R09.16 telegramsx used in Dresden
 	\end{itemize}
 \end{frame}
+
+% =================================================
 
 \begin{frame}
 \frametitle{Receiving data}
@@ -78,10 +86,46 @@
 \includegraphics[height=0.8\textheight]{figs/vcdb-map-ampelbeeinflussung.png}
 \end{frame}
 
+% =================================================
+
 \section{Soul Extrating Information \& Mapping }
 
 %TODO: oxa
 
+
+% =================================================
+
 \section{Architecture \& Infra }
+
+% =================================================
+
+\begin{frame}
+\frametitle{What Shit we have currently running}
+
+\begin{figure}
+
+\centering
+\includegraphics[height=0.94\textheight, angle=90]{figs/station_barkhausen.jpg}
+\caption{ Station Barkhausenbau }
+\end{figure}
+
+\end{frame}
+
+% =================================================
+
+\begin{frame}
+\frametitle{What Shit we have currently running}
+
+\begin{tikzpicture}
+
+
+\end{tikzpicture}
+
+\end{frame}
+
+
+\section{Call for Action}
+
+\section{Questions}
 
 \end{document}
