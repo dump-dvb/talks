@@ -16,8 +16,8 @@
   \setbeamertemplate{background}{
     \begin{tikzpicture}
       \useasboundingbox (0,0) rectangle(\the\paperwidth,\the\paperheight);
-      \fill[dvbyellow,rotate around={70:(2,0.5)}] (0,0) rectangle (22,2);
-      \fill[dvbyellow,rotate around={70:(5,0.5)}] (0,0) rectangle (22,2);
+      \fill[dvbyellow,rotate around={70:(0,0)}] (0,-2) rectangle (22,0);
+      \fill[dvbyellow,rotate around={70:(3,0)}] (0,-2) rectangle (22,0);
     \end{tikzpicture}
   }
   \begin{frame}
@@ -51,7 +51,8 @@
 % =================================================
 
 \begin{frame}
-\frametitle{Receiving data}
+\frametitle{Data sources}
+\framesubtitle{Overview of traffic light control (Ampelbeeinflussung)}
 \begin{figure}
 \centering
 \includegraphics[height=0.65\textheight]{figs/lsa-beeinflussungs-stecke.pdf}
@@ -62,7 +63,8 @@
 % =================================================
 
 \begin{frame}
-\frametitle{Receiving data}
+\frametitle{Data sources}
+\framesubtitle{Overview of traffic light control (Ampelbeeinflussung)}
 \begin{figure}
 \centering
 \includegraphics[height=0.65\textheight]{figs/lsa-beeinflussungs-stecke-mit-antenne.pdf}
@@ -73,7 +75,8 @@
 % =================================================
 
 \begin{frame}
-\frametitle{Receiving data}
+\frametitle{Data sources}
+\framesubtitle{Receiver overview}
 \begin{figure}
 \centering
 \includegraphics[height=0.65\textheight]{figs/antenna-filter.pdf}
@@ -84,14 +87,28 @@
 % =================================================
 
 \begin{frame}
+\frametitle{Protocol}
+\framesubtitle{VDV 420}
+
 	\begin{itemize}
-		\item R09 telegrams of trams and busses standardized in \href{https://knowhow.vdv.de/documents/420/}{VDV 420}
-		\item dresden uses R09.16
-		\item what data do we receive?
+		\item what protocol?
+		\begin{itemize}
+			\item R09 telegrams of trams and busses standardized in \href{https://knowhow.vdv.de/documents/420/}{VDV 420}
+			\item dresden uses R09.16
+			\item MSK, 2400bit/s
+		\end{itemize}
+		\item what frequency?
+		\begin{itemize}
+			\item look for the familiar bursty packets (screenshot)
+			\item look at the range of frequencies of RBL380, TODO add ranges
+			\item take a look at our table, TODO link
+			\item osint
+		\end{itemize}
+		\item what data can we receive?
 		\begin{itemize}
 			\item Tram identification data: line number, run number, destination number
 			\item Location data: traffic light id, direction, registration\_type
-			\item and some other
+			\item and some other (delay)
 		\end{itemize}
 	\end{itemize}
 \end{frame}
@@ -99,7 +116,8 @@
 % =================================================
 
 \begin{frame}
-\frametitle{Receiving data}
+\frametitle{Protocol}
+\framesubtitle{Protocolls used in different cities}
 \begin{figure}
 \centering
 % https://opus4.hbz-nrw.de/opus45-bast/frontdoor/deliver/index/docId/2595/file/V353+BF+Gesamtversion.pdf
