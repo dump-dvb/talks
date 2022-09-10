@@ -3,8 +3,7 @@
 \usepackage[T1]{fontenc}
 \usepackage{svg}
 
-\setbeamercolor{section in toc}{fg=black}
-\setbeamercolor{subsection in toc}{fg=black}
+\setbeamertemplate{caption}[numbered]
 
 \title{Open Data: \\ Receive it Yourself}
 \date[ISPN ’80]{Datenspuren 2022, Dresden}
@@ -13,15 +12,22 @@
 \usetheme{dvb}
 
 \AtBeginSection[]{
-  \begin{frame}
+  \begingroup
+  \setbeamertemplate{background}{
     \begin{tikzpicture}
-      \fill[rounded corners,dvbyellow,rotate around={30:(-1,0.5)}] (-20.5,0) rectangle (-0.5,2);
-      \fill[rounded corners,dvbyellow,rotate around={30:(-1,0.5)}] (-20.5,3) rectangle (-0.5,5);
-      \node (logo) at (-18,2) {
-        \textbf{ \LARGE \textbf{ \myfont \secname } }
-      };
-  \end{tikzpicture}
+      \useasboundingbox (0,0) rectangle(\the\paperwidth,\the\paperheight);
+      \fill[dvbyellow,rotate around={70:(2,0.5)}] (0,0) rectangle (22,2);
+      \fill[dvbyellow,rotate around={70:(5,0.5)}] (0,0) rectangle (22,2);
+    \end{tikzpicture}
+  }
+  \begin{frame}
+  \vskip4cm%
+    \begin{beamercolorbox}[wd=12cm,leftskip=3cm]{title page header}
+    	\usebeamerfont{title}\textbf{\LARGE \fontfamily{pag}\selectfont \secname}\par%
+    \end{beamercolorbox}
+  \vfill
   \end{frame}
+  \endgroup
 }
 
 \newcommand*{\myfont}{\fontfamily{pag}\selectfont}
@@ -46,24 +52,33 @@
 
 \begin{frame}
 \frametitle{Receiving data}
+\begin{figure}
 \centering
-\includegraphics[width=0.8\textwidth]{figs/lsa-beeinflussungs-stecke.pdf}
+\includegraphics[height=0.65\textheight]{figs/lsa-beeinflussungs-stecke.pdf}
+\caption{Traffic light controlled by radio link of busses and trams}
+\end{figure}
 \end{frame}
 
 % =================================================
 
 \begin{frame}
 \frametitle{Receiving data}
+\begin{figure}
 \centering
-\includegraphics[width=0.8\textwidth]{figs/lsa-beeinflussungs-stecke-mit-antenne.pdf}
+\includegraphics[height=0.65\textheight]{figs/lsa-beeinflussungs-stecke-mit-antenne.pdf}
+\caption{Radio signals can be received by our antennas}
+\end{figure}
 \end{frame}
 
 % =================================================
 
 \begin{frame}
 \frametitle{Receiving data}
+\begin{figure}
 \centering
-\includegraphics[width=0.7\textwidth]{figs/antenna-filter.pdf}
+\includegraphics[height=0.65\textheight]{figs/antenna-filter.pdf}
+\caption{Schematic overview of the receiver hardware}
+\end{figure}
 \end{frame}
 
 % =================================================
@@ -93,7 +108,7 @@
 \column{.5\linewidth}
 \includegraphics[height=0.8\textheight]{figs/vcdb-map-ampelbeeinflussung.png}
 \column{.5\linewidth}
-\caption{Map showing some of the locations with traffic lights, controlled by public transport. Blue points use the standard we already implemented.}
+\caption{Map with selected locations which have traffic lights, controlled by public transport. Blue points use the standard we implemented.}
 \end{columns}
 \end{figure}
 \end{frame}
@@ -115,10 +130,9 @@
 \frametitle{What Shit we have currently running}
 
 \begin{figure}
-
 \centering
-\includegraphics[height=0.94\textheight, angle=90]{figs/station_barkhausen.jpg}
-\caption{ Station Barkhausenbau }
+\includegraphics[height=0.9\textheight, angle=90]{figs/station_barkhausen.jpg}
+\caption{Station Barkhausenbau}
 \end{figure}
 
 \end{frame}
