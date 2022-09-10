@@ -3,12 +3,11 @@
 % Frame title
 \defbeamertemplate*{frametitle}{dvb}[1][]
 {
-\vskip1cm%
-  \begin{beamercolorbox}[wd=\paperwidth,ht=0.5cm]{frametitle} 
+  \begin{beamercolorbox}[wd=\paperwidth]{frametitle}
   \begin{tikzpicture}
-  \useasboundingbox[fill=white](0,0) rectangle(\the\paperwidth,1.2);
+  \useasboundingbox(0,0) rectangle(\the\paperwidth,1.4);
   
-  \fill[dvbyellow] (0,0) rectangle (\the\paperwidth,1.4);
+  \fill[dvbyellow] (0,0) rectangle (\the\paperwidth,\the\paperheight);
   \node[scale=0.6] (logo) at (2.8,-3.6) {
     \includegraphics[width=\textwidth]{dvbdump}
   };
