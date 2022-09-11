@@ -16,10 +16,11 @@
   %\fill[orange] (0,0) rectangle(2.95,1.2);
   %\fill[blue!50!cyan!80] (3.05,0) rectangle(\the\paperwidth,1.2);
    \ifx\insertframesubtitle\@empty%
-      {\node[anchor=west, black,font=\large] at (5.8,1.1){\textbf{\Large \fontfamily{pag} \selectfont \insertframetitle}};}
+      {\node[anchor=west, black,font=\large, inner sep=0] at (5.8,1.0){\textbf{\Large\fontfamily{pag} \selectfont\insertframetitle}};}
       \else%
-      {\node[anchor= west, black,font=\large] at (5.8,1.1){\textbf{\Large \fontfamily{pag} \selectfont \insertframetitle}};%
-       \node[anchor= west, black,font=\small] at (5.8,0.5){\insertframesubtitle};}%
+      {
+      	\node[anchor= west, black,font=\large, inner sep=0] at (5.8,1.0){\textbf{\fontfamily{pag}\selectfont\insertframetitle}};%
+      	\node[anchor= west, black,font=\small, inner sep=0] at (5.8,0.4){\insertframesubtitle};}%
       \fi
   \end{tikzpicture}
   \end{beamercolorbox}
