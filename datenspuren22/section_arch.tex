@@ -1,0 +1,148 @@
+% =================================================
+
+\begin{frame}
+  \frametitle{Operating Receivers}
+
+
+\begin{figure}
+\begin{columns}
+\column{.5\linewidth}
+\begin{center}
+  \includegraphics[height=0.65\textheight]{figs/map_dresden.jpg}
+  \caption{Receivers in Dresden}
+\end{center}
+\column{.5\linewidth}
+\begin{center}
+  \includegraphics[height=0.65\textheight]{figs/map_chemnitz.jpg}
+  \caption{Receivers in Chemnitz}
+\end{center}
+\end{columns}
+\end{figure}
+
+\end{frame}
+
+% =================================================
+
+\begin{frame}
+\frametitle{Received Data}
+
+\begin{figure}[h!]
+  \begin{center}
+    \begin{tikzpicture}[scale=0.6]
+      \begin{axis}[
+          width=\linewidth,
+          grid=major,
+          grid style={dashed,gray!30},
+          xlabel=Time over 4 days,
+          ylabel=Telegrams in 5 minute intervals,
+          %x unit=time,
+          %y unit=\si{\ampere},
+          %legend style={at={(0.5,-0.2)},anchor=north},
+          x tick label style={rotate=90,anchor=east},
+          xticklabels={,,},
+          %xticklabels={day1, day2, day3, day4} TODO: make nice labels
+        ]
+        \addplot
+        table[x=time,y=value,col sep=comma] {figs/rawdata.csv};
+      \end{axis}
+    \end{tikzpicture}
+  \end{center}
+\end{figure}
+
+
+\end{frame}
+
+% =================================================
+
+\begin{frame}
+\frametitle{Assembeling a Receiver}
+
+\begin{figure}
+\begin{columns}
+\column{.5\linewidth}
+\begin{center}
+\includegraphics[height=0.7\textheight]{figs/station_barkhausen.jpg}
+\end{center}
+\column{.5\linewidth}
+\raggedright
+\caption{Station Barkhausenbau}
+\vspace{0.5cm}
+
+\begin{itemize}
+	%\item\todo[inline]{make caption allign left}
+	%\item\todo[inline]{please provide some details about this station}
+  \item GDR powersuply casing (10\euro)
+  \item Dell Wyse 3040 (70\euro)
+  \item Rad1o Badge (e.g RTL SDR 30\euro)
+  \item Hardware Filter (15\euro)
+  \item Healthy amounts of kapton
+\end{itemize}
+
+$\Rightarrow$ ~130\euro \ per Station
+
+\end{columns}
+\end{figure}
+
+\end{frame}
+
+% =================================================
+
+\begin{frame}
+\frametitle{Architecture}
+
+% Funnel
+% DVB-API
+% Clicky-Bunty
+% Tracy
+
+\usetikzlibrary{calc}
+\usetikzlibrary{decorations.pathreplacing,decorations.markings,shapes.geometric}
+\tikzset{radiation/.style={{decorate,decoration={expanding waves,angle=90,segment length=4pt}}}}
+
+\begin{tikzpicture}[thick,scale=0.55, every node/.style={scale=0.55}]
+
+\input{figs/receiver.tikz}
+\input{figs/architecture.tikz}
+\input{figs/client.tikz}
+
+\end{tikzpicture}
+
+\end{frame}
+
+%TODO: Friendship Ended with Influx
+
+% =================================================
+
+\begin{frame}
+  \frametitle{Technical Loans}
+  \framesubtitle{Lessons Learned}
+
+\begin{figure}
+\begin{columns}
+\column{.5\linewidth}
+\begin{center}
+\includegraphics[height=0.65\textheight]{figs/meme_postgres_influx.png}
+\end{center}
+\column{.5\linewidth}
+\raggedright
+\vspace{0.5cm}
+
+\begin{itemize}
+  \item Influx Sucks
+        \begin{itemize}
+          \item Database dumps costed 14GBs of RAM
+          \item Server died hourly
+        \end{itemize}
+    \item Single point of truth
+    \begin{itemize}
+        \item Implement Protocols in Libraries which is then used by both parties.
+    \end{itemize}
+    \item Hardware homogenity
+\end{itemize}
+\end{columns}
+\end{figure}
+
+\end{frame}
+
+% =================================================
+
