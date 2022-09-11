@@ -215,7 +215,36 @@
 % =================================================
 
 \begin{frame}
-\frametitle{What Shit we have currently running}
+\frametitle{Operating Receivers}
+\begin{figure}
+\begin{columns}
+\column{.5\linewidth}
+\begin{center}
+\includegraphics[height=0.7\textheight]{figs/map_dresden.jpg}
+\end{center}
+\caption{Receivers in Dresden}
+\column{.5\linewidth}
+\raggedright
+\begin{center}
+\includegraphics[height=0.6\textheight]{figs/map_chemnitz.jpg}
+\end{center}
+\caption{Receivers in Chemnitz}
+
+\end{columns}
+\end{figure}
+\end{frame}
+
+% =================================================
+
+\begin{frame}
+\frametitle{Received Data}
+
+\end{frame}
+
+% =================================================
+
+\begin{frame}
+\frametitle{Assembeling a Receiver}
 
 \begin{figure}
 \begin{columns}
@@ -227,10 +256,19 @@
 \raggedright
 \caption{Station Barkhausenbau}
 \vspace{0.5cm}
+
 \begin{itemize}
-	\item\todo[inline]{make caption allign left}
-	\item\todo[inline]{please provide some details about this station}
+	%\item\todo[inline]{make caption allign left}
+	%\item\todo[inline]{please provide some details about this station}
+  \item VEB powersuply casing (10\$)
+  \item Dell Wyse 3040 (30\$)
+  \item Rad1o Badge (e.g RTL SDR 30\$)
+  \item Hardware Filter (10\$)
+  \item Healthy amounts of electric tape
 \end{itemize}
+
+$\Rightarrow$ 70\$ - 90\$ per Station
+
 \end{columns}
 \end{figure}
 
@@ -239,7 +277,7 @@
 % =================================================
 
 \begin{frame}
-\frametitle{What Shit we have currently running}
+\frametitle{Architecture}
 
 % Funnel
 % DVB-API
@@ -315,6 +353,8 @@
 
 \end{frame}
 
+%TODO: Friendship Ended with Influx
+
 % =================================================
 
 \section{Call for Action}
@@ -328,7 +368,7 @@
   \item Frontend
         \begin{itemize}
           \item \textbf{Tofu}: landing page (TECHNOLOGY OPEN)
-          \item \textbf{Tracy}: Mapping Assiten (TECHNOLOGY OPEN)
+          \item \textbf{Tracy}: Mapping Assitent (TECHNOLOGY OPEN)
           \item \textbf{Click}: User + Station Managment (elm-lang)
           \item \textbf{Windshield} Live Map
         \end{itemize}
