@@ -4,8 +4,11 @@
 \usepackage{svg}
 \usepackage{todonotes}
 \usepackage{siunitx}
-\usepackage{tikz} % To generate the plot from csv
+\usepackage{tikz}
 \usepackage{pgfplots}
+\usepackage{eurosym}
+\usepackage{relsize}
+\usepackage{ellipsis}
 
 \pgfplotsset{compat=newest} % Allows to place the legend below plot
 \usepgfplotslibrary{units} % Allows to enter the units nicely
@@ -228,16 +231,14 @@
 \begin{columns}
 \column{.5\linewidth}
 \begin{center}
-\includegraphics[height=0.7\textheight]{figs/map_dresden.jpg}
+  \includegraphics[height=0.65\textheight]{figs/map_dresden.jpg}
+  \caption{Receivers in Dresden}
 \end{center}
-\caption{Receivers in Dresden}
 \column{.5\linewidth}
-\raggedright
 \begin{center}
-\includegraphics[height=0.6\textheight]{figs/map_chemnitz.jpg}
+  \includegraphics[height=0.65\textheight]{figs/map_chemnitz.jpg}
+  \caption{Receivers in Chemnitz}
 \end{center}
-\caption{Receivers in Chemnitz}
-
 \end{columns}
 \end{figure}
 
@@ -261,7 +262,8 @@
           %y unit=\si{\ampere},
           %legend style={at={(0.5,-0.2)},anchor=north},
           x tick label style={rotate=90,anchor=east},
-          xticklabels={,,}
+          xticklabels={,,},
+          %xticklabels={day1, day2, day3, day4} TODO: make nice labels
         ]
         \addplot
         table[x=time,y=value,col sep=comma] {figs/rawdata.csv};
@@ -292,14 +294,14 @@
 \begin{itemize}
 	%\item\todo[inline]{make caption allign left}
 	%\item\todo[inline]{please provide some details about this station}
-  \item VEB powersuply casing (10\$)
-  \item Dell Wyse 3040 (70\$)
-  \item Rad1o Badge (e.g RTL SDR 30\$)
-  \item Hardware Filter (10\$)
+  \item GDR powersuply casing (10\texteuro)
+  \item Dell Wyse 3040 (70\texteuro)
+  \item Rad1o Badge (e.g RTL SDR 30\texteuro)
+  \item Hardware Filter (15\texteuro)
   \item Healthy amounts of kapton
 \end{itemize}
 
-$\Rightarrow$ ~120 \$ per Station
+$\Rightarrow$ ~130\texteuro \ per Station
 
 \end{columns}
 \end{figure}
@@ -316,70 +318,15 @@ $\Rightarrow$ ~120 \$ per Station
 % Clicky-Bunty
 % Tracy
 
+\usetikzlibrary{calc}
+\usetikzlibrary{decorations.pathreplacing,decorations.markings,shapes.geometric}
+\tikzset{radiation/.style={{decorate,decoration={expanding waves,angle=90,segment length=4pt}}}}
 
-\begin{tikzpicture}[scale=0.95]
-  \filldraw[draw=black,fill=lightgray] (5,3) rectangle (19,-3);
+\begin{tikzpicture}[thick,scale=0.55, every node/.style={scale=0.55}]
 
-  \filldraw[draw=black,fill=gray] (5.5,1) rectangle (9,-1);
-  \node[database,label=above:postgres,database radius=0.7cm,database segment height=0.35cm] at (10,-2) {};
-  \node[database,label=above:stops.json,database radius=0.7cm,database segment height=0.35cm] at (10,0.5) {};
-
-  % DataAccm <-> Postgres
-  \draw[->,rounded corners, line width=0.25mm] (6, -1)  -- (6,-2) -- (9.2,-2);
-  \draw[->,rounded corners, line width=0.25mm] (9.2, -1.9)  -- (6.1,-1.9) -- (6.1,-1);
-
-  % User Facing Services
-  \filldraw[draw=black,fill=gray] (15,2.9) rectangle (18.5,1.6);
-  \filldraw[draw=black,fill=gray] (15,1.4) rectangle (18.5,0.1);
-  \filldraw[draw=black,fill=gray] (15,-0.1) rectangle (18.5,-1.4);
-  \filldraw[draw=black,fill=gray] (15,-1.6) rectangle (18.5,-2.9);
-
-  % GRPC Arrows
-  \draw[->,rounded corners, red, line width=0.25mm] (6, 1)  -- (6,2.25) -- (15,2.25);
-  \draw[->,rounded corners, red, line width=0.25mm] (12.7, 2.25)  -- (12.7,0.9) -- (15,0.9);
-
-  % Postgres Arrows
-  % Tracy
-  \draw[->,rounded corners, line width=0.25mm] (10.8, -2.2)  -- (15,-2.2);
-  \draw[->,rounded corners, line width=0.25mm] (15, -2.3)  -- (10.8,-2.3);
-  % Clicky-Bunty-Server
-  \draw[->,rounded corners, line width=0.25mm] (15, -0.8)  -- (12.9, -0.8) -- (12.9, -2.1) -- (10.8,-2.1);
-  \draw[->,rounded corners, line width=0.25mm] (10.8, -2)  -- (12.8, -2) -- (12.8, -0.7) -- (15,-0.7);
-  % DVB-API
-  \draw[->,rounded corners, line width=0.25mm] (10.8, -1.9)  -- (12.7, -1.9) -- (12.7, 0.6) -- (15, 0.6);
-
-  % Labeling
-  \node[text width=3cm] at (7.3,0) {Data-Accumulator};
-  \node[text width=1cm] at (16.75,2.25) {Funnel};
-  \node[text width=2cm] at (16.8,0.75) {DVB-API};
-  \node[text width=2.5cm] at (16.8,-0.75) {Clicky-Bunty};
-  \node[text width=1cm] at (16.75,-2.25) {Tracy};
-
-  % Look Ups
-  \draw[->,rounded corners, black!60!green, line width=0.25mm] (10.8, 0.75)  -- (15, 0.75);
-
-  % Labeling Arrows
-  \node[text width=2cm] at (11.7,2.5) {\tiny GRPC/Protobuf};
-  \node[text width=1cm] at (11.7,1) {\tiny Look UP};
-  \node[text width=1cm] at (11.7, -1.7) {\tiny Queries};
-
-  \draw[->,rounded corners, black!30!orange, line width=0.25mm] (4.75, 0)  -- (5.5, 0);
-
-  \draw[->,rounded corners, black!30!orange, line width=0.25mm] (18.5, 2.25)  -- (19.25, 2.25);
-  \draw[->,rounded corners, black!30!orange, line width=0.25mm] (18.5, 0.75)  -- (19.25, 0.75);
-
-
-  \draw[->,rounded corners, black!30!orange, line width=0.25mm] (19.25, -0.7)  -- (18.5, -0.7);
-  \draw[->,rounded corners, black!30!orange, line width=0.25mm] (18.5, -0.8)  -- (19.25, -0.8);
-
-  \draw[->,rounded corners, black!30!orange, line width=0.25mm] (19.25, -2.2)  -- (18.5, -2.2);
-  \draw[->,rounded corners, black!30!orange, line width=0.25mm] (18.5, -2.3)  -- (19.25, -2.3);
-
-  \node[text width=0.1cm] at (4.8,0.3) {\tiny REST};
-  \node[text width=0.1cm] at (18.6,1) {\tiny REST};
-  \node[text width=0.1cm] at (18.6,-2) {\tiny REST};
-  \node[text width=0.1cm] at (18.6,2.5) {\tiny SOCKET};
-  \node[text width=0.1cm] at (18.6,-0.5) {\tiny SOCKET};
+\input{figs/receiver.tikz}
+\input{figs/architecture.tikz}
+\input{figs/client.tikz}
 
 \end{tikzpicture}
 
@@ -409,9 +356,12 @@ $\Rightarrow$ ~120 \$ per Station
           \item Database dumps costed 14GBs of RAM
           \item Server died hourly
         \end{itemize}
-  \end{itemize}
-
-
+    \item Single point of truth
+    \begin{itemize}
+        \item Implement Protocols in Libraries which is then used by both parties.
+    \end{itemize}
+    \item Hardware homogenity
+\end{itemize}
 \end{columns}
 \end{figure}
 
@@ -439,6 +389,7 @@ $\Rightarrow$ ~120 \$ per Station
   \item Map your City
   \item Find Frequencies
   \item Test Images on new Hardware
+  \item Give us Roof Access
 \end{itemize}
 
 \end{frame}

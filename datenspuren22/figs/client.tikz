@@ -1,0 +1,28 @@
+
+% Station Box
+\filldraw[draw=black,fill=lightgray] (21,3) rectangle (24,-3);
+
+% GNU Radio and Telegram Decoder
+\filldraw[draw=black,fill=gray] (21.1,0.1) rectangle (23.9,2.9);
+\filldraw[draw=black,fill=gray] (21.1,-0.1) rectangle (23.9,-1.4);
+\filldraw[draw=black,fill=gray] (21.1,-1.6) rectangle (23.9,-2.9);
+
+% Labeling
+\node[text width=2cm] at (23,1.5) {Map};
+\node[text width=2cm] at (23,-0.75) {Click};
+\node[text width=2cm] at (23,-2.25) {Tracy};
+
+\draw[->,rounded corners, black!30!orange, line width=0.25mm] (18.5, 2.25)  -- (21, 2.25);
+\draw[->,rounded corners, black!30!orange, line width=0.25mm] (18.5, 0.75)  -- (21, 0.75);
+
+\draw[->,rounded corners, black!30!orange, line width=0.25mm] (21, -0.7)  -- (18.5, -0.7);
+\draw[->,rounded corners, black!30!orange, line width=0.25mm] (18.5, -0.8)  -- (21, -0.8);
+
+\draw[->,rounded corners, black!30!orange, line width=0.25mm] (21, -2.2)  -- (18.5, -2.2);
+\draw[->,rounded corners, black!30!orange, line width=0.25mm] (18.5, -2.3)  -- (21, -2.3);
+
+
+\node[text width=0.1cm] at (19.5,1) {\tiny REST};
+\node[text width=0.1cm] at (19.5,-2) {\tiny REST};
+\node[text width=0.1cm] at (19.5,2.5) {\tiny SOCKET};
+\node[text width=0.1cm] at (19.5,-0.5) {\tiny SOCKET};
