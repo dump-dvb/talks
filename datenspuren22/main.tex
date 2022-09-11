@@ -4,6 +4,12 @@
 \usepackage{svg}
 \usepackage{todonotes}
 \usepackage{siunitx}
+\usepackage{tikz} % To generate the plot from csv
+\usepackage{pgfplots}
+
+\pgfplotsset{compat=newest} % Allows to place the legend below plot
+\usepgfplotslibrary{units} % Allows to enter the units nicely
+
 
 \setbeamertemplate{caption}[numbered]
 
@@ -215,29 +221,55 @@
 % =================================================
 
 \begin{frame}
-\frametitle{Operating Receivers}
-\begin{figure}
-\begin{columns}
-\column{.5\linewidth}
-\begin{center}
-\includegraphics[height=0.7\textheight]{figs/map_dresden.jpg}
-\end{center}
-\caption{Receivers in Dresden}
-\column{.5\linewidth}
-\raggedright
-\begin{center}
-\includegraphics[height=0.6\textheight]{figs/map_chemnitz.jpg}
-\end{center}
-\caption{Receivers in Chemnitz}
+  \frametitle{Operating Receivers}
 
-\end{columns}
-\end{figure}
+
+%\begin{figure}
+%\begin{columns}
+%\column{.5\linewidth}
+%\begin{center}
+%\includegraphics[height=0.7\textheight]{figs/map_dresden.jpg}
+%\end{center}
+%\caption{Receivers in Dresden}
+%\column{.5\linewidth}
+%\raggedright
+%\begin{center}
+%\includegraphics[height=0.6\textheight]{figs/map_chemnitz.jpg}
+%end{center}
+%\caption{Receivers in Chemnitz}
+
+%\end{columns}
+%\end{figure}
+
 \end{frame}
 
 % =================================================
 
 \begin{frame}
 \frametitle{Received Data}
+
+\begin{figure}[h!]
+  \begin{center}
+    \begin{tikzpicture}[scale=0.6]
+      \begin{axis}[
+          width=\linewidth,
+          grid=major,
+          grid style={dashed,gray!30},
+          xlabel=Time over 4 days,
+          ylabel=Telegrams in 5 minute intervals,
+          %x unit=time,
+          %y unit=\si{\ampere},
+          %legend style={at={(0.5,-0.2)},anchor=north},
+          x tick label style={rotate=90,anchor=east},
+          xticklabels={,,}
+        ]
+        \addplot
+        table[x=time,y=value,col sep=comma] {figs/rawdata.csv};
+      \end{axis}
+    \end{tikzpicture}
+  \end{center}
+\end{figure}
+
 
 \end{frame}
 
@@ -261,13 +293,13 @@
 	%\item\todo[inline]{make caption allign left}
 	%\item\todo[inline]{please provide some details about this station}
   \item VEB powersuply casing (10\$)
-  \item Dell Wyse 3040 (30\$)
+  \item Dell Wyse 3040 (70\$)
   \item Rad1o Badge (e.g RTL SDR 30\$)
   \item Hardware Filter (10\$)
-  \item Healthy amounts of electric tape
+  \item Healthy amounts of kapton
 \end{itemize}
 
-$\Rightarrow$ 70\$ - 90\$ per Station
+$\Rightarrow$ ~120 \$ per Station
 
 \end{columns}
 \end{figure}
@@ -375,6 +407,7 @@ $\Rightarrow$ 70\$ - 90\$ per Station
   \item Setup Stations
   \item Map your City
   \item Find Frequencies
+  \item Test Images on new Hardware
 \end{itemize}
 
 \end{frame}
