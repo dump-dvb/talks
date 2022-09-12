@@ -1,0 +1,10 @@
+\frametitle{Data we Currently Provide}
+\framesubtitle{REST DVB-API}
+
+\begin{itemize}
+     \item \url{https://api.dvb.solutions}
+     \item \textbf{GET  /vehicles/0/all}
+     \item \textbf{POST /vehicles/0/query}
+     \item \textbf{POST /network/0/estimated\_travel\_time}
+     \item \textbf{POST /static/0/coordinates}
+  \end{itemize}

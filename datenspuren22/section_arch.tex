@@ -128,7 +128,7 @@ $\Rightarrow$ ~130\euro \ per Station
 \vspace{0.5cm}
 
 \begin{itemize}
-  \item Influx Sucks
+  \item Influx
         \begin{itemize}
           \item Database dumps costed 14GBs of RAM
           \item Server died hourly
@@ -146,3 +146,71 @@ $\Rightarrow$ ~130\euro \ per Station
 
 % =================================================
 
+\begin{frame}[fragile]
+\frametitle{Data we Currently Provide}
+\framesubtitle{Websocket Funnel}
+\begin{figure}
+\begin{columns}
+  \column{.5\linewidth}
+\begin{lstlisting}[basicstyle=\scriptsize]
+{
+  "time":1662932144,
+  "station":"97d028ec-43e2-4473-...",
+  "region":0,
+  "telegram_type":16,
+  "reporting_point":8366,
+  "junction":209,
+  "direction":1,
+  "request_status":2,
+  "delay":0,
+  "priority":0,
+  "direction_request":0,
+  "line":4,
+  "run_number":9,
+  "destination_number":31,
+  "train_length":0
+}
+\end{lstlisting}
+\column{.5\linewidth}
+\raggedright
+\vspace{0.5cm}
+
+\begin{itemize}
+  \item \url{https://socket.dvb.solutions}
+  \item Configurable Filters (region, line, junction)
+  \item Deduplicated
+  \item Very raw
+\end{itemize}
+\end{columns}
+\end{figure}
+\end{frame}
+
+% =================================================
+
+\begin{frame}[fragile]
+\frametitle{Data we Currently Provide}
+\framesubtitle{stop.json \& graph.json}
+
+  \begin{itemize}
+    \item \url{https://map.dvb.solutions/stop/<region id>.json}
+    \item \url{https://map.dvb.solutions/stop/all.json}
+    \item \url{https://map.dvb.solutions/graph/<region id>.json}
+    \item \url{https://map.dvb.solutions/graph/all.json}
+  \end{itemize}
+\end{frame}
+% =================================================
+
+\begin{frame}[fragile]
+\frametitle{Data we Currently Provide}
+\framesubtitle{REST DVB-API}
+
+\begin{itemize}
+     \item \url{https://api.dvb.solutions}
+     \item \textbf{GET  /vehicles/0/all}
+     \item \textbf{POST /vehicles/0/query}
+     \item \textbf{POST /network/0/estimated\_travel\_time}
+     \item \textbf{POST /static/0/coordinates}
+  \end{itemize}
+\end{frame}
+
+% =================================================
