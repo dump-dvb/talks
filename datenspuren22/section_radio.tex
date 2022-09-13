@@ -1,18 +1,6 @@
 % =================================================
 
 \begin{frame}
-\frametitle{Protocol}
-\framesubtitle{Protocolls Used in Different Cities}
-\begin{figure}
-\centering
-\missingfigure[figwidth=7cm]{}
-\caption{Missing figure caption}
-\end{figure}
-\end{frame}
-
-% =================================================
-
-\begin{frame}
 \frametitle{Data Sources}
 \framesubtitle{Overview of Traffic Light Control (Ampelbeeinflussung)}
 \begin{figure}
@@ -65,12 +53,13 @@
 \frametitle{Protocol}
 \framesubtitle{VDV 420 Data}
 \begin{itemize}
-	\item what data can we receive?
+	\item What data do we receive?
 	\begin{itemize}
-		\item Tram identification data: line number (3 BCD), run number (2 BCD), destination number (3 BCD)
-		\item Location data: traffic light id, direction, registration\_type all in 16 bit
-		\item and some other (delay)
+		\item Tram identification: line number (3 decimal digits), run number (2 decimal digits), destination number (3 digits)
+		\item Location: Reporting point (16 bit) which might contain 2 bit registration\_type (Pre-registration, Registraion, De-registration, Doors closed), traffic light id and direction
+		\item Other data: Delay ($\pm 7$), train length (until now always zero) etc.
 	\end{itemize}
+	\item Representation of data might be different than in the original standard
 \end{itemize}
 \end{frame}
 
@@ -108,6 +97,15 @@
 \begin{frame}
 \frametitle{Protocol}
 \framesubtitle{Frequency Identification}
+\begin{columns}
+\column{.276\linewidth}
+\centering
+\begin{figure}
+	\centering
+	\includegraphics[width=\textwidth]{figs/lsa-antenna.png}
+	\caption{Telegram receiver on the right}
+\end{figure}
+\column{.724\linewidth}
 \begin{itemize}
 		\item What are the frequency ranges to look for the signal?
 		\item Technical documentation of different receivers, i.e. \href{https://www.piciorgros.com/fileadmin/documents/RBL380.pdf}{RBL-380} or \href{https://www.img-nordhausen.de/wp-content/uploads/2021/05/DA\_WZLSA\_2-3\_G\_d\_03\_15.pdf}{WZ LSA 2-3/G}, provide these details
@@ -115,8 +113,9 @@
 		\item Frequency 2m Band \SI{146}{\MHz} -- \SI{174}{\MHz}
 		\item Frequency 4m Band \SI{68}{\MHz} -- \SI{87.5}{\MHz}
 		\item We have a \href{https://docs.dvb.solutions/chapter\_3\_data\_providers.html}{table of known frequencies}
-		\item OSINT: Search for R09 frequency <city>
+		\item OSINT: Search for ``R09 frequency <city>''
 \end{itemize}
+\end{columns}
 \end{frame}
 
 % =================================================
