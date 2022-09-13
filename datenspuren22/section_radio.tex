@@ -52,8 +52,8 @@
 \frametitle{Protocol}
 \framesubtitle{VDV 420}
 	\begin{itemize}
-		\item which protocol?
-		\item which frequency?
+%		\item which protocol?
+%		\item which frequency?
 		\item some background on Ampelbeeinflussung and VDV 420 / 426
 		\item R09 telegrams of trams and busses standardized in \href{https://knowhow.vdv.de/documents/420/}{VDV 420}
 	\end{itemize}
@@ -67,8 +67,8 @@
 \begin{itemize}
 	\item what data can we receive?
 	\begin{itemize}
-		\item Tram identification data: line number, run number, destination number
-		\item Location data: traffic light id, direction, registration\_type
+		\item Tram identification data: line number (3 BCD), run number (2 BCD), destination number (3 BCD)
+		\item Location data: traffic light id, direction, registration\_type all in 16 bit
 		\item and some other (delay)
 	\end{itemize}
 \end{itemize}
@@ -79,23 +79,6 @@
 \begin{frame}
 \frametitle{Protocol}
 \framesubtitle{VDV 420 Physical Layer}
-\begin{itemize}
-	\item Minimum Shift Keying with \SI{2400}{Baud}
-	\item bursty packet transmittion
-		\item what frequency?
-		\begin{itemize}
-			\item look at the range of frequencies of RBL380, TODO add ranges
-			\item take a look at our table, TODO link
-			\item osint
-		\end{itemize}
-\end{itemize}
-\end{frame}
-
-% =================================================
-
-\begin{frame}
-\frametitle{Protocol}
-\framesubtitle{Frequency Identification}
 \begin{columns}
 \column{0.6\linewidth}
 \centering
@@ -113,8 +96,27 @@
 \caption{Screenshots of the bursty transmittion pattern}
 \end{figure}
 \column{0.4\linewidth}
-
+\begin{itemize}
+	\item Bursty transmittion
+	\item Minimum Shift Keying with \SI{2400}{Baud}
+\end{itemize}
 \end{columns}
+\end{frame}
+
+% =================================================
+
+\begin{frame}
+\frametitle{Protocol}
+\framesubtitle{Frequency Identification}
+\begin{itemize}
+		\item What are the frequency ranges to look for the signal?
+		\item Technical documentation of different receivers, i.e. \href{https://www.piciorgros.com/fileadmin/documents/RBL380.pdf}{RBL-380} or \href{https://www.img-nordhausen.de/wp-content/uploads/2021/05/DA\_WZLSA\_2-3\_G\_d\_03\_15.pdf}{WZ LSA 2-3/G}, provide these details
+		\item Frequency 70cm Band \SI{450}{\MHz} -- \SI{470}{\MHz}		
+		\item Frequency 2m Band \SI{146}{\MHz} -- \SI{174}{\MHz}
+		\item Frequency 4m Band \SI{68}{\MHz} -- \SI{87.5}{\MHz}
+		\item We have a \href{https://docs.dvb.solutions/chapter\_3\_data\_providers.html}{table of known frequencies}
+		\item OSINT: Search for R09 frequency <city>
+\end{itemize}
 \end{frame}
 
 % =================================================
