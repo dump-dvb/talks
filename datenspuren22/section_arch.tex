@@ -18,9 +18,12 @@
 
 % =================================================
 
+\usetikzlibrary{calc}
+\usetikzlibrary{decorations.pathreplacing,decorations.markings,shapes.geometric}
+\tikzset{radiation/.style={{decorate,decoration={expanding waves,angle=90,segment length=4pt}}}}
+
 \begin{frame}
   \frametitle{Operating Receivers}
-
 
 \begin{figure}
 \begin{columns}
@@ -104,17 +107,72 @@ $\Rightarrow$ ~130\euro \ per Station
 % =================================================
 
 \begin{frame}
+\frametitle{Deployment with Nix}
+
+
+\begin{itemize}
+  \item \todo[inline]{Configuring Stations}
+  \item \todo[inline]{User Configs}
+\end{itemize}
+
+\end{frame}
+
+% =================================================
+
+\begin{frame}
+\frametitle{Receiver}
+
+\begin{figure}
+\begin{columns}
+\column{.5\linewidth}
+\begin{center}
+  \begin{tikzpicture}[scale=0.8]
+    \input{figs/receiver.tikz}
+  \end{tikzpicture}
+\end{center}
+\caption{Station Barkhausenbau}
+\column{.5\linewidth}
+\raggedright
+\vspace{0.5cm}
+
+\begin{itemize}
+  \item Region specific encoding depending on special quirks from the City.
+  \item Currently only does R09.16 and Raw Telegrams
+  \item Authenticates with Station UUID and Token
+\end{itemize}
+
+\end{columns}
+\end{figure}
+
+\end{frame}
+
+% =================================================
+
+\begin{frame}
+  \frametitle{Server}
+  \begin{figure}
+    \begin{center}
+      \begin{tikzpicture}[thick,scale=0.55, every node/.style={scale=0.55}]
+        \input{figs/architecture.tikz}
+      \end{tikzpicture}
+    \end{center}
+  \end{figure}
+
+  \begin{itemize}
+    \item \todo[inline]{throughput}
+  \end{itemize}
+
+\end{frame}
+
+% =================================================
+
+\begin{frame}
 \frametitle{Architecture}
 
 % Funnel
 % DVB-API
 % Clicky-Bunty
 % Tracy
-
-\usetikzlibrary{calc}
-\usetikzlibrary{decorations.pathreplacing,decorations.markings,shapes.geometric}
-\tikzset{radiation/.style={{decorate,decoration={expanding waves,angle=90,segment length=4pt}}}}
-
 \begin{tikzpicture}[thick,scale=0.55, every node/.style={scale=0.55}]
 
 \input{figs/receiver.tikz}
