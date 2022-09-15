@@ -39,13 +39,20 @@
 \begin{frame}
 \frametitle{Protocol}
 \framesubtitle{VDV 420}
-\todo[inline]{This slide is a big todo}
+%\todo[inline]{This slide is a big todo}
 	\begin{itemize}
 %		\item which protocol?
 %		\item which frequency?
-		\item some background on Ampelbeeinflussung and VDV 420 / 426
-		\item R09 telegrams of trams and busses standardized in \Colorhref{https://knowhow.vdv.de/documents/420/}{VDV 420}
+%		\item some background on Ampelbeeinflussung and VDV 420 / 426
+		\item R09.1x telegrams of trams and busses standardized in \Colorhref{https://knowhow.vdv.de/documents/420/}{VDV 420}
+%		\item R09.1x telegrams can contain different amount of data
+		\item R09.18 is specified not in the standard, but there is a \Colorhref{https://github.com/wireshark/wireshark/blob/master/epan/dissectors/packet-r09.c}{wireguard dissector} for it
 	\end{itemize}
+\begin{figure}
+\centering
+\includegraphics[width=.8\textwidth]{figs/vdv426-r09-variants.pdf}
+\caption{\Colorhref{https://knowhow.vdv.de/documents/420/}{VDV 420} specifies R09.1x types containing different amount of data}
+\end{figure}
 \end{frame}
 
 % =================================================
@@ -74,7 +81,7 @@ What data do we receive?
 \end{itemize}
 \begin{figure}
 \centering
-\includegraphics[width=.9\textwidth]{figs/vdv426-r09-variants.pdf}
+\includegraphics[width=.9\textwidth]{figs/vdv426-r09-16-variants.pdf}
 \caption{\Colorhref{https://knowhow.vdv.de/documents/426/}{VDV 426} specifies different formats for the data fields}
 \end{figure}
 \end{frame}
