@@ -72,17 +72,14 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
   \frametitle{Mapping}
-  \begin{columns}
-    \column{.7\linewidth}
     \begin{itemize}
       \item "By Hand" doesn't scale too well
       \item OSINT is unreliable source of information
       \item Junction number corresponds to several reporting points
       \item Need a way to correlate telegrams to map location!
     \end{itemize}
-    \column{.3\linewidth}
+    \vspace{20pt}
     \includegraphics[width=\columnwidth]{./figs/moar_points.png}
-  \end{columns}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -90,7 +87,7 @@
   \frametitle{Dump DVB: Modern WarFerry}
   \framesubtitle{GPS, Puns and Radio}
   \begin{columns}
-    \column{.6\linewidth}
+    \column{.55\linewidth}
       Telegram Recording:
         \begin{itemize}
       \item SDR with a computer in a tupperware
@@ -99,8 +96,8 @@
     \end{itemize}
       Location Recording: Phone\\
       Correlation: lofi
-    \column{.4\linewidth}
-    \todo[inline]{nice warferry nudes}
+    \column{.45\linewidth}
+    \includegraphics[width=\columnwidth]{./figs/warferry-nude.jpg}
   \end{columns}
 \end{frame}
 
@@ -110,20 +107,24 @@
   \framesubtitle{How it's done now}
   \begin{columns}
     \column{.6\linewidth}
+    \uncover<1->{
     Bootstraping:
     \begin{itemize}
       \item Go around the city with a warferry
       \item Track your position and line/run number
       \item Correlate the data
     \end{itemize}
+  }
+  \uncover<2->{
     Decent city coverage by radio stations:
     \begin{itemize}
       \item Go around the city
       \item Track your position and line/run number
       \item Correlate the positions to telegrams from the station
     \end{itemize}
+  }
     \column{.4\linewidth}
-    \todo[inline]{nice warferry picture}
+    \includegraphics[width=\columnwidth]{./figs/warferry.jpg}
   \end{columns}
 \end{frame}
 
