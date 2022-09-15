@@ -30,7 +30,7 @@
 
 % Labeling
 \node[text width=3cm] at (7.3,0) {Data-Accumulator};
-\node[text width=1cm] at (16.75,2.25) {Funnel};
+\node[text width=2cm] at (16.75,2.25) {Funnel};
 \node[text width=2cm] at (16.8,0.75) {DVB-API};
 \node[text width=2.5cm] at (16.8,-0.75) {Clicky-Bunty};
 \node[text width=1cm] at (16.75,-2.25) {Tracy};

@@ -143,50 +143,6 @@ $\Rightarrow$ ~130\euro \ per Station
 
 % =================================================
 
-\begin{frame}[fragile]
-\frametitle{Deployment with Nix}
-\begin{figure}
-\begin{columns}
-\column{.5\linewidth}
-\begin{center}
-  \begin{lstlisting}[language=Nix][basicstyle=\small]
-  dump-dvb.gnuradio = {
-    enable = true;
-    frequency = 170790000;
-    offset = 20000;
-    device = "";
-    RF = 14;
-    IF = 32;
-    BB = 42;
-  };
-
-  dump-dvb.telegramDecoder = {
-    enable = true;
-    server = [
-       "https://dump.dvb.solutions"
-       "http://dump.staging.dvb.solutions"
-    ];
-  };
-\end{lstlisting}
-\caption{users receiver configuration}
-\end{center}
-\column{.5\linewidth}
-\raggedright
-\vspace{0.5cm}
-\begin{itemize}
-
-  \item Building complete Images for x86 and aarch64 on hydra
-  \item custom nixos options for all the services
-  \item wireguard for the receivers that we maintain for punching NAT
-\end{itemize}
-
-\end{columns}
-\end{figure}
-
-\end{frame}
-
-% =================================================
-
 \begin{frame}
 \frametitle{Receiver}
 
@@ -201,15 +157,14 @@ $\Rightarrow$ ~130\euro \ per Station
 
   \end{tikzpicture}
 \end{center}
-\caption{Station Barkhausenbau}
 \column{.5\linewidth}
 \raggedright
 \vspace{0.5cm}
 
 \begin{itemize}
-  \item Region specific encoding depending on special quirks from the City.
-  \item Currently only parses R09.16 and everything else is recorded als Raw-Telegram
-  \item Authenticates with Station UUID and Token
+  \item Region specific encoding depending on special quirks from the city.
+  \item Currently only parses R09.16 and everything else is recorded as raw-telegram
+  \item Authenticates with station UUID and token
 \end{itemize}
 
 \end{columns}
@@ -223,16 +178,11 @@ $\Rightarrow$ ~130\euro \ per Station
   \frametitle{Server}
   \begin{figure}
     \begin{center}
-      \begin{tikzpicture}[thick,scale=0.55, every node/.style={scale=0.55}]
+      \begin{tikzpicture}[thick,scale=0.85, every node/.style={scale=0.85}]
         \input{figs/architecture.tikz}
       \end{tikzpicture}
     \end{center}
   \end{figure}
-
-  \begin{itemize}
-    \item \todo[inline]{throughput}
-  \end{itemize}
-
 \end{frame}
 
 % =================================================
@@ -244,7 +194,7 @@ $\Rightarrow$ ~130\euro \ per Station
 % DVB-API
 % Clicky-Bunty
 % Tracy
-\begin{tikzpicture}[thick,scale=0.55, every node/.style={scale=0.55}]
+\begin{tikzpicture}[thick,scale=0.55, every node/.style={scale=0.65}]
 
 \input{figs/receiver.tikz}
 \input{figs/architecture.tikz}
@@ -294,7 +244,6 @@ $\Rightarrow$ ~130\euro \ per Station
 
 % =================================================
 
-
 \begin{frame}
   \frametitle{Technical Loans}
   \framesubtitle{Lessons Learned}
@@ -326,6 +275,26 @@ $\Rightarrow$ ~130\euro \ per Station
 
 \end{frame}
 
+% =================================================
+
+\begin{frame}[fragile]
+\frametitle{Data we Currently Provide}
+\framesubtitle{Websocket Funnel}
+\begin{figure}
+\begin{columns}
+  \column{.5\linewidth}
+  \includegraphics[height=0.65\textheight]{figs/data_dump.png}
+\column{.5\linewidth}
+\raggedright
+\vspace{0.5cm}
+
+\begin{itemize}
+  \item 7.7 million telegras are already recorded
+  \item hourly and daily dumps can be fetched from \url{https://files.dvb.solutions}
+\end{itemize}
+\end{columns}
+\end{figure}
+\end{frame}
 % =================================================
 
 \begin{frame}[fragile]
