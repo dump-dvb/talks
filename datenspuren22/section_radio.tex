@@ -39,13 +39,33 @@
 \begin{frame}
 \frametitle{Protocol}
 \framesubtitle{VDV 420}
-\todo[inline]{This slide is a big todo}
+%\todo[inline]{This slide is a big todo}
 	\begin{itemize}
 %		\item which protocol?
 %		\item which frequency?
-		\item some background on Ampelbeeinflussung and VDV 420 / 426
-		\item R09 telegrams of trams and busses standardized in \Colorhref{https://knowhow.vdv.de/documents/420/}{VDV 420}
+%		\item some background on Ampelbeeinflussung and VDV 420 / 426
+		\item R09.1x telegrams of trams and busses standardized in \Colorhref{https://knowhow.vdv.de/documents/420/}{VDV 420}
+%		\item R09.1x telegrams can contain different amount of data
+		\item R09.18 is specified not in the standard, but there is a \Colorhref{https://github.com/wireshark/wireshark/blob/master/epan/dissectors/packet-r09.c}{wireguard dissector} for it
 	\end{itemize}
+\begin{figure}
+\centering
+\includegraphics[width=.8\textwidth]{figs/vdv426-r09-variants.pdf}
+\caption{\Colorhref{https://knowhow.vdv.de/documents/420/}{VDV 420} specifies R09.1x types containing different amount of data}
+\end{figure}
+\end{frame}
+
+% =================================================
+
+\begin{frame}
+\frametitle{Protocol}
+\framesubtitle{VDV 420 Data}
+What data do we receive?
+\begin{itemize}
+		\item Tram identification: line number (3 decimal digits), run number (2 decimal digits), destination number (3 digits)
+		\item Location: Reporting point (16 bit) which might contain 2 bit registration\_type (Pre-registration, Registraion, De-registration, Doors closed), traffic light id and direction
+		\item Other data: Delay ($\pm 7$), train length (until now always zero) etc.
+\end{itemize}
 \end{frame}
 
 % =================================================
@@ -54,17 +74,16 @@
 \frametitle{Protocol}
 \framesubtitle{VDV 420 Data}
 \begin{itemize}
-	\item What data do we receive?
-	\begin{itemize}
-		\item Tram identification: line number (3 decimal digits), run number (2 decimal digits), destination number (3 digits)
-		\item Location: Reporting point (16 bit) which might contain 2 bit registration\_type (Pre-registration, Registraion, De-registration, Doors closed), traffic light id and direction
-		\item Other data: Delay ($\pm 7$), train length (until now always zero) etc.
-	\end{itemize}
-	\item Representation of data might be different than in the original standard
-	% https://www.tirol.gv.at/fileadmin/themen/verkehr/verkehrsplanung/Verkehrsmanagement/Downloads/101022_PRL_VLSA-Tirol_V1.1_inkl_Anh01-Anh10.pdf
-	\todo[inline]{represantion of dresden/tirol}
-	\todo[inline]{screenshot from vdv 426}
+	\item Representation of data might be different from the original standard
+	\item Dresden: Reporting Point = $((<TRAFFIC\ LIGHT\ ID> *\ 10\ + <DIRECTION>) << 2)\ | <REGISTRATION>$
+	\item Tirol: Reporting Point = $((<DIRECTION> *\ 1000\ + <TRAFFIC\ LIGHT\ ID>) << 2)\ | <REGISTRATION>$ \Colorhref{https://www.tirol.gv.at/fileadmin/themen/verkehr/verkehrsplanung/Verkehrsmanagement/Downloads/101022\_PRL\_VLSA-Tirol\_V1.1\_inkl\_Anh01-Anh10.pdf}{}
+	%\todo[inline]{represantion of dresden/tirol}
 \end{itemize}
+\begin{figure}
+\centering
+\includegraphics[width=.9\textwidth]{figs/vdv426-r09-16-variants.pdf}
+\caption{\Colorhref{https://knowhow.vdv.de/documents/426/}{VDV 426} specifies different formats for the data fields}
+\end{figure}
 \end{frame}
 
 % =================================================
@@ -135,14 +154,13 @@
 \centering
 \includegraphics[height=0.8\textheight]{figs/vcdb-map-ampelbeeinflussung.png}
 \column{.5\linewidth}
-\caption{Map with selected locations which have traffic lights, controlled by public transport. Blue points use the standard we implemented.}
-\vspace{0.5cm}
+\caption{\Colorhref{https://opus4.hbz-nrw.de/opus45-bast/frontdoor/deliver/index/docId/2595/file/V353+BF+Gesamtversion.pdf}{Map from bast} with selected locations which have traffic lights, controlled by public transport. Blue points use the standard we implemented.}
+%\vspace{0.5cm}
 \begin{itemize}
 	\item Implementations using a different physical layer exsist too, i.e. Berlin with Tetrapol
 	\item \Colorhref{https://knowhow.vdv.de/documents/426/}{VDV 426} has more information on this topic
 	\item Actual included data doesn't seem to be different
 \end{itemize}
-\todo[inline]{add link for the map}
 \end{columns}
 \end{figure}
 \end{frame}
