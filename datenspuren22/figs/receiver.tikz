@@ -7,7 +7,6 @@
 
 % Data Flow
 \draw[->,rounded corners, line width=0.25mm, red] (1.5, 0.8) -- (1.5,-0.8);
-\draw[->,rounded corners, line width=0.25mm, orange] (3, -1.8)  -- (4,-1.8) -- (4,0) -- (5, 0);
 
 % Antenna Drawing
 \draw[rounded corners, line width=0.25mm, black] (3, 1.8) -- (4,1.8) -- (4, 4);
@@ -18,6 +17,4 @@
 \node[text width=2cm] at (1.5,1.8) {GNU-Radio};
 \node[text width=2cm] at (1.5,-1.8) {\centering Telegram Decoder};
 
-
-\node[text width=0.2cm] at (4,0.2) {\tiny REST};
 \node[text width=0.2cm] at (1.7,0) {\tiny UDP};
