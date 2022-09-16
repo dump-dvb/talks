@@ -3,24 +3,28 @@
 % Frame title
 \defbeamertemplate*{frametitle}{dvb}[1][]
 {
-  \begin{beamercolorbox}[wd=\paperwidth]{frametitle}
+  \begin{beamercolorbox}[wd=\paperwidth,ht=1.4cm]{frametitle}
   \begin{tikzpicture}
   \useasboundingbox(0,0) rectangle(\the\paperwidth,1.4);
   
   \fill[dvbyellow] (0,0) rectangle (\the\paperwidth,\the\paperheight);
-  \node[scale=0.6] (logo) at (2.8,-3.6) {
-    \includegraphics[width=\textwidth]{dvbdump}
-  };
+  \pgfdeclareimage[height=1.75cm]{img}{figs/dump-dvb-logo/dump-dvb-logo.pdf};
+   \node[anchor=north west] (img1) at (0,1.61) {\pgfuseimage{img}};
+  %\node[scale=1] (logo) at (2.8,-3.6) {
+  %  \includegraphics[height=1.4]{figs/dump-dvb-logo/dump-dvb-logo.pdf}
+  %};
   %\node[text=black, scale=0.8] (name) at (3,1.5) {DUMP-DVB};
   %\node[text=black, scale=0.7] (name) at (3,1.1) {Institute};
+  \node[anchor=west, black,font=\large, inner sep=0] at (2,1.0){\textbf{\fontfamily{pag}\selectfont Dump-DVB\phantom{p}}};
+  \node[anchor= west, black,font=\large, inner sep=0] at (2,0.4){\textbf{\fontfamily{pag}\selectfont Institute\phantom{p}}};%
   %\fill[orange] (0,0) rectangle(2.95,1.2);
   %\fill[blue!50!cyan!80] (3.05,0) rectangle(\the\paperwidth,1.2);
    \ifx\insertframesubtitle\@empty%
-      {\node[anchor=west, black,font=\large, inner sep=0] at (5.8,1.0){\textbf{\Large\fontfamily{pag} \selectfont\insertframetitle}};}
+      {\node[anchor=west, black,font=\large, inner sep=0] at (5.8,1.0){\textbf{\fontfamily{pag} \selectfont\insertframetitle\phantom{p}}};}
       \else%
       {
-      	\node[anchor= west, black,font=\large, inner sep=0] at (5.8,1.0){\textbf{\fontfamily{pag}\selectfont\insertframetitle}};%
-      	\node[anchor= west, black,font=\small, inner sep=0] at (5.8,0.4){\insertframesubtitle};}%
+      	\node[anchor= west, black,font=\large, inner sep=0] at (5.8,1.0){\textbf{\fontfamily{pag}\selectfont\insertframetitle\phantom{p}}};%
+      	\node[anchor= west, black,font=\small, inner sep=0] at (5.8,0.4){\insertframesubtitle\phantom{p}};}%
       \fi
   \end{tikzpicture}
   \end{beamercolorbox}
