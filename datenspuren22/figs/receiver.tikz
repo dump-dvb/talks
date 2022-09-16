@@ -1,12 +1,12 @@
 % Station Box
-\filldraw[draw=black,fill=lightgray] (0,3) rectangle (3,-3);
+\filldraw[draw=black,fill=white] (0,3) rectangle (3,-3);
 
 % GNU Radio and Telegram Decoder
-\filldraw[draw=black,fill=gray] (0.1,0.8) rectangle (2.9,2.8);
-\filldraw[draw=black,fill=gray] (0.1,-0.8) rectangle (2.9,-2.8);
+\filldraw[draw=black,fill=lightgray] (0.1,0.8) rectangle (2.9,2.8);
+\filldraw[draw=black,fill=lightgray] (0.1,-0.8) rectangle (2.9,-2.8);
 
 % Data Flow
-\draw[->,rounded corners, line width=0.25mm, red] (1.5, 0.8) -- (1.5,-0.8);
+\draw[->,rounded corners, line width=0.25mm, draw={rgb:red,31;green,119;blue,180}] (1.5, 0.8) -- (1.5,-0.8);
 
 % Antenna Drawing
 \draw[rounded corners, line width=0.25mm, black] (3, 1.8) -- (4,1.8) -- (4, 4);
