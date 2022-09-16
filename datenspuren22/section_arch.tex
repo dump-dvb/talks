@@ -111,7 +111,7 @@
 % =================================================
 
 \begin{frame}
-\frametitle{Converage Estimation}
+\frametitle{Coverage Estimation}
 
 \begin{figure}
 \begin{columns}
@@ -125,8 +125,8 @@
 \vspace{0.5cm}
 
 \begin{itemize}
-  \item \todo[inline]{Add query}
-  \item See $\approx$ 60\% of the city
+  \item Unique junction id with more than 300 received telegram is 325
+  \item See $\approx$ 70\% - 80\% of the city
 \end{itemize}
 
 \end{columns}
@@ -235,7 +235,47 @@ $\Rightarrow$ ~160\euro \ per Station
 
 \end{frame}
 
-%TODO: Friendship Ended with Influx
+% =================================================
+
+\begin{frame}[fragile]
+\frametitle{Deployment with Nix}
+\begin{figure}
+\begin{columns}
+\column{.5\linewidth}
+  \begin{center}
+  \begin{lstlisting}[language=Nix][basicstyle=\small]
+    dump-dvb.gnuradio = {
+      enable = true;
+      frequency = 170790000;
+      offset = 20000;
+      device = "";
+      RF = 14;
+      IF = 32;
+      BB = 42;
+    };
+
+    dump-dvb.telegramDecoder = {
+      enable = true;
+      server = [
+        "https://dump.dvb.solutions"
+        "http://dump.staging.dvb.solutions"
+      ];
+    };
+  \end{lstlisting}
+  \caption{users receiver configuration}
+\end{center}
+\column{.5\linewidth}
+\raggedright
+\vspace{0.5cm}
+\begin{itemize}
+  \item Building complete Images for x86 and aarch64 on hydra
+  \item custom nixos options for all the services
+  \item wireguard for the receivers that we maintain for punching NAT
+\end{itemize}
+
+\end{columns}
+\end{figure}
+\end{frame}
 
 % =================================================
 
