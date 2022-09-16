@@ -72,14 +72,33 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
   \frametitle{Mapping}
+  \framesubtitle{Identifying the Transmission Location}
     \begin{itemize}
-      \item ``By Hand'' doesn't scale too well
-      \item OSINT is unreliable source of information
-      \item Junction number corresponds to several reporting points
-      \item Need a way to correlate telegrams to map location!
+      \item ``by hand'' doesn't scale too well
+      \item osint is unreliable source of information
+      \item junction number corresponds to several reporting points
+      \item need a way to correlate telegrams to map location!
     \end{itemize}
     \vspace{20pt}
     \includegraphics[width=\columnwidth]{./figs/moar_points.png}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+  \frametitle{Mapping}
+  \framesubtitle{Identifying the Vehicle}
+    \begin{columns}
+      \column{.4\textwidth}
+      \centering
+      \includegraphics[width=.8\columnwidth]{./figs/tram-id-dresden.png}
+      \column{.6\textwidth}
+    \begin{itemize}
+      \item Vehicle ID: Line Number \& Run Number
+      \item Dresden Trams: Run number present almost always
+      \item Dresden Busses: Hit-or-miss, can be seen on the driver monitor
+      \item Chemnitz: REEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEe
+    \end{itemize}
+    \end{columns}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
